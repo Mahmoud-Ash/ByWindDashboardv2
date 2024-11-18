@@ -45,7 +45,7 @@ const CustomSelect = ({ options, name, className }: CustomSelectProps) => {
         ))}
       </select>
       <img
-        src='/arrowDown.svg'
+        src='./arrowDown.svg'
         alt='drop down'
         className='absolute right-4 z-50 pointer-events-none'
       />

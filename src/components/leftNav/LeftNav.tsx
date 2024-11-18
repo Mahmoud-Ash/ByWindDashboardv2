@@ -39,7 +39,7 @@ const LeftNav = ({ className }: { className?: string }) => {
           <div className='flex gap-2 p-2 rounded-lg '>
             <i className='group rounded-full h-6 w-6 overflow-hidden relative'>
               <img
-                src='/Frame.png'
+                src='./Frame.png'
                 alt=''
                 className='group-hover:scale-110 duration-500'
               />

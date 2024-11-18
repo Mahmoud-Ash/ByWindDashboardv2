@@ -13,9 +13,9 @@ const Logo = ({
   return (
     <div className={twMerge("", className)}>
       {isDark ? (
-        <img src={expanded ? "/logo-dark.png" : "/logo-small.png"} alt='' />
+        <img src={expanded ? "./logo-dark.png" : "./logo-small.png"} alt='' />
       ) : (
-        <img src={expanded ? "/logo.png" : "/logo-small.png"} alt='' />
+        <img src={expanded ? "./logo.png" : "./logo-small.png"} alt='' />
       )}
     </div>
   );

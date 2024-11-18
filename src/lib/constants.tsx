@@ -68,75 +68,75 @@ export const notifications = [
   {
     message: "You fixed a bug.",
     time: "Just now",
-    icon: "/BugBeetle.svg",
+    icon: "./BugBeetle.svg",
   },
   {
     message: "New user registered.",
     time: "59 minutes ago",
-    icon: "/User.svg",
+    icon: "./User.svg",
   },
   {
     message: "You fixed a bug.",
     time: "12 hours ago",
-    icon: "/BugBeetle.svg",
+    icon: "./BugBeetle.svg",
   },
   {
     message: "Andi Lane subscribed to you.",
     time: "Today, 11:59 AM",
-    icon: "/Broadcast.svg",
+    icon: "./Broadcast.svg",
   },
 ];
 export const activities = [
   {
     message: "changed the style.",
     time: "Just now",
-    icon: "/a1.png",
+    icon: "./a1.png",
   },
   {
     message: "released a new version.",
     time: "59 minutes ago",
-    icon: "/a2.png",
+    icon: "./a2.png",
   },
   {
     message: "submitted a bug.",
     time: "12 hours ago",
-    icon: "/a3.png",
+    icon: "./a3.png",
   },
   {
     message: "modified A data in page X.",
     time: "Today, 11:59 AM",
-    icon: "/a4.png",
+    icon: "./a4.png",
   },
   {
     message: "deleted a page in project X.",
     time: "Feb 2, 2024",
-    icon: "/a5.png",
+    icon: "./a5.png",
   },
 ];
 export const contacts = [
   {
     name: "Natali Craig",
-    img: "/c1.png",
+    img: "./c1.png",
   },
   {
     name: "Drew Cano",
-    img: "/c2.png",
+    img: "./c2.png",
   },
   {
     name: "Andi Lane",
-    img: "/c3.png",
+    img: "./c3.png",
   },
   {
     name: "Koray Okumus",
-    img: "/c4.png",
+    img: "./c4.png",
   },
   {
     name: "Kate Morrison",
-    img: "/c5.png",
+    img: "./c5.png",
   },
   {
     name: "Melody Macy",
-    img: "/c6.png",
+    img: "./c6.png",
   },
 ];
 
@@ -228,14 +228,14 @@ export const countryRows: GridRowsProp = [
   {
     id: 1,
     country: "Egypt",
-    image: "/flag.png",
+    image: "./flag.png",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
   },
   {
     id: 2,
     country: "Egypt",
-    image: "/flag.png",
+    image: "./flag.png",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
   },
@@ -287,7 +287,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 1,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -296,7 +296,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 2,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -305,7 +305,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 3,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -314,7 +314,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 4,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -323,7 +323,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 5,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -332,7 +332,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 6,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -341,7 +341,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 7,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -350,7 +350,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 8,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -359,7 +359,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 9,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -368,7 +368,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 10,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -377,7 +377,7 @@ export const cityRows: GridRowsProp = [
   {
     id: 11,
     city: "Cairo",
-    image: "/flag.png",
+    image: "./flag.png",
     country: "Egypt",
     region: "Africa",
     createdAt: "12 Aug 2022 - 12:25 am",
@@ -394,6 +394,6 @@ export const regions = [
 export const modalTabs = ["region", "country", "city"];
 
 export const countries = [
-  { name: "egypt", img: "/flag.png" },
-  { name: "nigeria", img: "/ng 1.png" },
+  { name: "egypt", img: "./flag.png" },
+  { name: "nigeria", img: "./ng 1.png" },
 ];

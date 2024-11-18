@@ -45,9 +45,9 @@ const Card = ({ className, card }: CardProps) => {
             {card.perc}%
           </span>
           {card.perc > 0 ? (
-            <img src='ArrowRise.svg' alt='' />
+            <img src='./ArrowRise.svg' alt='' />
           ) : (
-            <img src='ArrowFall.svg' alt='' />
+            <img src='./ArrowFall.svg' alt='' />
           )}
         </div>
       </div>

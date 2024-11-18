@@ -40,7 +40,7 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
               next page Country be press next button.
             </p>
             <Input type='text' placeholder='region name' />
-            <img src='/country.svg' alt='' className='size-fit mx-auto' />
+            <img src='./country.svg' alt='' className='size-fit mx-auto' />
             <div className='w-[318px] flex justify-between mx-auto mt-auto mb-5'>
               <Button
                 onClick={closeModal}
@@ -71,7 +71,7 @@ const Modal = ({ closeModal }: { closeModal: () => void }) => {
               className=' flex flex-col items-center gap-2 px-4 py-[6.5px] bg-hover-soft rounded-lg'
             >
               <div className='flex gap-2'>
-                <img src='/upload-cloud.svg' alt='' />
+                <img src='./upload-cloud.svg' alt='' />
                 <p className='leading-[22px] text-soft'>
                   Click to{" "}
                   <span className='font-semibold text-main-txt'>Upload</span>{" "}

@@ -14,11 +14,13 @@ export default {
         softer: "var(--text-softer)",
         hover: "var(--hover-color)",
         "hover-soft": "var(--hover-soft)",
-        bg2: "var(--BG2)",
-        bg3: "var(--BG3)",
-        bg4: "var(--BG4)",
+        bg2: "var(--bg2)",
+        bg3: "var(--bg3)",
+        bg4: "var(--bg4)",
         brand: "var(--brand)",
         cyan: "var(--cyan)",
+        btn: "#095CA8",
+        cell: "var(--cell)",
       },
       boxShadow: {
         "input-focus":

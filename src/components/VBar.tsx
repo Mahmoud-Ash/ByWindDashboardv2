@@ -8,7 +8,7 @@ import {
   YAxis,
 } from "recharts";
 import { twMerge } from "tailwind-merge";
-import useGetWebTraffic from "../../hooks/useGetWebTraffic";
+import useGetWebTraffic from "../hooks/useGetWebTraffic";
 import Loading from "./Loading";
 
 const CustomBar = ({ x, y, width, height, fill }: BarProps) => {
@@ -67,8 +67,9 @@ const VBar = ({ className }: { className: string }) => {
   const { data, isLoading } = useGetWebTraffic();
   return (
     <div
+      // 2xl:max-w-[272px]
       className={twMerge(
-        "bg-bg2 h-[330px] min-w-[200px] 2xl:max-w-[272px] flex flex-col gap-4 p-6 rounded-2xl",
+        "bg-bg2 h-[330px] min-w-[200px] flex flex-col gap-4 p-6 rounded-2xl",
         className
       )}
     >

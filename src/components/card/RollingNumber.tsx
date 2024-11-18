@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { nums } from "../../../lib/constants";
+import { nums } from "../../lib/constants";
 
 const RollingNumber = ({ digit }: { digit: number }) => {
   const [hovered, setHovered] = useState(false);

@@ -1,7 +1,10 @@
 import { twMerge } from "tailwind-merge";
 import { activities, contacts, notifications } from "../lib/constants";
+import { useState } from "react";
 
 const RightNav = ({ className }: { className?: string }) => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <>
       <input
@@ -9,16 +12,24 @@ const RightNav = ({ className }: { className?: string }) => {
         id='checkR'
         className='peer/r hidden'
         aria-label='hidden'
+        onChange={() => setExpanded(prev => !prev)}
       />
       <aside
         className={twMerge(
-          "hidden xl:flex flex-col gap-4 p-4 border-l border-hover w-[280px] duration-500 peer-checked/r:translate-x-full peer-checked/r:w-0  peer-checked/r:px-0",
-          className
+          "relative flex flex-col gap-4 p-4 border-l border-hover w-[280px] duration-500 ",
+          className,
+          !expanded ? "translate-x-full w-0  px-0" : ""
         )}
       >
         {/* NOTIFICATION  */}
         <div className='flex flex-col gap-1'>
-          <h1 className='px-1 py-2 rounded-lg cursor-default hover:px-2 duration-500'>
+          <label
+            htmlFor='checkR'
+            className='cursor-pointer absolute right-8 top-6 px-3 py-1 rounded-lg bg-softer hover:bg-soft duration-300 min-[1790px]:hidden'
+          >
+            X
+          </label>
+          <h1 className='px-1 py-2 rounded-lg cursor-default hover:px-2 duration-500 '>
             Notifications
           </h1>
           {notifications.map((item, i) => (

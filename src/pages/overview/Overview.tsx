@@ -1,14 +1,14 @@
 import { cards } from "../../lib/constants";
-import CustomBarChart from "./CustomBarChart";
-import Card from "./card/Card";
-import Doughnut from "./Doughnut";
-import VBar from "./VBar";
-import CustomLineChart from "./CustomLineChart";
 import useGetDeviceTraffic from "../../hooks/useGetDeviceTraffic";
 import useGetLocationTraffic from "../../hooks/useGetLocationTraffic";
 import useGetMarketing from "../../hooks/useGetMarketing";
+import Card from "../../components/card/Card";
+import CustomLineChart from "../../components/CustomLineChart";
+import VBar from "../../components/VBar";
+import CustomBarChart from "../../components/CustomBarChart";
+import Doughnut from "../../components/Doughnut";
 
-const Content = () => {
+const Overview = () => {
   const miniBar = useGetDeviceTraffic();
   const megaBar = useGetMarketing();
   const doughnut = useGetLocationTraffic();
@@ -48,14 +48,14 @@ const Content = () => {
           <Card
             key={card.id}
             card={card}
-            className={`col-span-1 md:col-span-4 min-[1400px]:col-span-2 ${
+            className={`col-span-1 md:col-span-4 lg:col-span-2 ${
               i % 2 ? "bg-bg3" : "bg-bg4"
             }`}
           />
         ))}
         {/* LINE CHART & VBAR  */}
-        <CustomLineChart className=' col-span-2 md:col-span-5 lg:col-span-6 xl:col-span-5 2xl:col-span-6  ' />
-        <VBar className='col-span-2 sm:col-span-1 md:col-span-3 lg:col-span-2 xl:col-span-3 2xl:col-span-2' />
+        <CustomLineChart className=' col-span-2 md:col-span-5 lg:col-span-6 xl:col-span-6 ' />
+        <VBar className='col-span-2 md:col-span-3 lg:col-span-2 xl:col-span-2' />
 
         {/* MINI BAR CHART */}
         <div className='col-span-2  md:col-span-4  bg-bg2 h-[280px] 2xl:min-w-[400px] flex flex-col gap-4 p-6 rounded-2xl'>
@@ -97,4 +97,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Overview;

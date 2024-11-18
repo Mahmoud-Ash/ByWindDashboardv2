@@ -3,9 +3,10 @@ import Button from "../Button";
 import { twMerge } from "tailwind-merge";
 import Logo from "./Logo";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const LeftNav = ({ className }: { className?: string }) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <>
@@ -18,20 +19,27 @@ const LeftNav = ({ className }: { className?: string }) => {
       />
       <aside
         className={twMerge(
-          `lg:flex flex-col gap-2 px-4 py-4 border-r border-hover duration-300
-          hidden
-          `,
+          `relative flex flex-col gap-2 sm:px-4 py-4 border-r border-hover duration-300`,
           className,
-          !expanded ? "w-20" : "w-[212px]"
+          !expanded ? "w-0 sm:w-20 max-[1500px]:fixed" : "w-[212px]"
         )}
       >
+        <label
+          htmlFor='checkL'
+          className={twMerge(
+            "cursor-pointer absolute right-5 top-5 px-3 py-1 rounded-lg bg-softer hover:bg-soft duration-300 min-[1500px]:hidden ",
+            !expanded ? "hidden" : ""
+          )}
+        >
+          X
+        </label>
         {/* USER SECTION */}
         <div className='flex flex-col items-start gap-1 pb-3'>
           {/* USER INFO */}
           <div className='flex gap-2 p-2 rounded-lg '>
             <i className='group rounded-full h-6 w-6 overflow-hidden relative'>
               <img
-                src='Frame.png'
+                src='/Frame.png'
                 alt=''
                 className='group-hover:scale-110 duration-500'
               />
@@ -92,7 +100,6 @@ const LeftNav = ({ className }: { className?: string }) => {
             </div>
           </div>
         </div>
-
         {/* MENU LIST SECTION */}
         {LeftMenuList.map(list => (
           <div
@@ -109,55 +116,70 @@ const LeftNav = ({ className }: { className?: string }) => {
               {list.name}
             </h1>
             {list.items.map(listItem => (
-              <button
+              <NavLink
+                to={listItem.url}
+                end={listItem.id === 1}
                 key={listItem.id}
-                className={`flex items-center rounded-xl hover:bg-hover-soft group ${
+                className={({
+                  isActive,
+                }) => `flex items-center rounded-xl  group ${
                   expanded ? "gap-1 p-2" : "p-3 gap-0 justify-center size-12 "
+                }
+                ${
+                  isActive
+                    ? "bg-btn text-white fill-white"
+                    : "hover:bg-hover-soft"
                 }`}
               >
-                <svg
-                  className={`text-softer hover:text-main-txt duration-300 ${
-                    !expanded && "size-0"
-                  }`}
-                  width='16'
-                  height='16'
-                  // viewBox='0 0 16 16'
-                  fill='currentColor'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    fillRule='evenodd'
-                    clipRule='evenodd'
-                    d='M5.65967 12.3536C5.44678 12.1583 5.44678 11.8417 5.65967 11.6464L9.25 8.35355C9.4629 8.15829 9.4629 7.84171 9.25 7.64645L5.65968 4.35355C5.44678 4.15829 5.44678 3.84171 5.65968 3.64645C5.87257 3.45118 6.21775 3.45118 6.43065 3.64645L10.021 6.93934C10.6597 7.52513 10.6597 8.47487 10.021 9.06066L6.43065 12.3536C6.21775 12.5488 5.87257 12.5488 5.65967 12.3536Z'
-                    fill='currentColor'
-                  />
-                </svg>
-                <div
-                  className={`flex items-center rounded-lg  ${
-                    expanded ? "gap-2" : "gap-0"
-                  }`}
-                >
-                  {listItem.icon}
-                  <span
-                    className={`flex-1 text-left hover:px-1 duration-300 whitespace-nowrap overflow-hidden ${
-                      expanded ? "w-20" : "w-0"
+                {({ isActive }) => (
+                  <>
+                    {/* ARROW  */}
+                    <svg
+                      className={`duration-300 ${!expanded && "size-0"}
+                    ${
+                      isActive
+                        ? "text-white"
+                        : "text-softer hover:text-main-txt "
                     }`}
-                  >
-                    {listItem.title}
-                  </span>
-
-                  {/* TOOLTIP  */}
-                  {!expanded && (
-                    <div className='fixed z-50 bg-black/80 text-white text-xs backdrop-blur pointer-events-none duration-300 opacity-0 left-20 rounded-lg px-2 py-1 group-hover:opacity-100 '>
-                      {listItem.title}
+                      width='16'
+                      height='16'
+                      fill='currentColor'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M5.65967 12.3536C5.44678 12.1583 5.44678 11.8417 5.65967 11.6464L9.25 8.35355C9.4629 8.15829 9.4629 7.84171 9.25 7.64645L5.65968 4.35355C5.44678 4.15829 5.44678 3.84171 5.65968 3.64645C5.87257 3.45118 6.21775 3.45118 6.43065 3.64645L10.021 6.93934C10.6597 7.52513 10.6597 8.47487 10.021 9.06066L6.43065 12.3536C6.21775 12.5488 5.87257 12.5488 5.65967 12.3536Z'
+                        fill='currentColor'
+                      />
+                    </svg>
+                    {/* LINK  */}
+                    <div
+                      className={`flex items-center rounded-lg  ${
+                        expanded ? "gap-2" : "gap-0"
+                      }`}
+                    >
+                      {listItem.icon}
+                      <span
+                        className={`flex-1 text-left hover:px-1 duration-300 whitespace-nowrap overflow-hidden ${
+                          expanded ? "w-20" : "w-0"
+                        }`}
+                      >
+                        {listItem.title}
+                      </span>
+                      {/* TOOLTIP */}
+                      {!expanded && (
+                        <div className='fixed z-50 bg-black/80 text-white text-xs backdrop-blur pointer-events-none duration-300 opacity-0 left-20 rounded-lg px-2 py-1 group-hover:opacity-100 '>
+                          {listItem.title}
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              </button>
+                  </>
+                )}
+              </NavLink>
             ))}
           </div>
         ))}
-
         {/* lOGO sECTION */}
         <Logo
           expanded={expanded}

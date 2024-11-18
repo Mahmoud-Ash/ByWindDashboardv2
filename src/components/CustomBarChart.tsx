@@ -7,7 +7,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { useDarkMode } from "../../contexts/themeContext/ThemeContext";
+import { useDarkMode } from "../contexts/themeContext/ThemeContext";
 import { twMerge } from "tailwind-merge";
 import Loading from "./Loading";
 

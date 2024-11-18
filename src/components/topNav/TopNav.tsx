@@ -3,22 +3,21 @@ import Button from "../Button";
 import { useRef } from "react";
 import TooltipButton from "./TooltipButton";
 import ThemeButton from "./ThemeButton";
+import { useLocation } from "react-router-dom";
 
 const TopNav = ({ className }: { className?: string }) => {
   const searchRef = useRef<HTMLInputElement>(null);
+  const location = useLocation();
+  const category = location.pathname.split("/")[2];
+  const subCategory = location.pathname.split("/")[3];
 
   return (
     <header className={twMerge("", className)}>
-      <nav className='border-b border-hover px-3 sm:px-7 py-3 sm:py-5 flex justify-between items-center'>
+      <nav className='relative border-b border-hover px-3 sm:px-7 py-3 sm:py-5 flex justify-between items-center'>
         {/* LEFT SIDE */}
         <div className='flex items-center gap-2'>
           <div className='flex gap-2 items-center '>
-            <TooltipButton
-              htmlFor='checkL'
-              tooltip='sidebar'
-              shortCut='⌘ s'
-              className='hidden lg:flex'
-            >
+            <TooltipButton htmlFor='checkL' tooltip='sidebar' shortCut='⌘ s'>
               <svg
                 className='peer'
                 width='20'
@@ -60,23 +59,24 @@ const TopNav = ({ className }: { className?: string }) => {
           </div>
 
           <div className='hidden sm:flex items-center gap-2 rounded-lg'>
-            <Button className='px-2 py-1 text-soft hover:px-3'>
-              Dashboards
+            <Button className='px-2 py-1 text-soft hover:px-3 capitalize'>
+              {category ? category : "Dashboards"}
             </Button>
             <span className='text-softer rounded-lg text-sm'>/</span>
-            <Button className='px-2 py-1 rounded-lg text-sm hover:px-3'>
-              Default
+            <Button className='px-2 py-1 rounded-lg text-sm hover:px-3 capitalize'>
+              {subCategory ? subCategory : "Overview"}
             </Button>
           </div>
         </div>
         {/* RIGHT SIDE */}
-        <div className='flex gap-5 '>
+        <div className='flex items-center gap-5 relative '>
           {/* SEARCH CONTAINER */}
           <div
             onClick={() => searchRef.current?.focus()}
-            className='group peer w-8 sm:w-40 focus-within:w-40 flex items-center gap-2 px-2 py-1 rounded-lg text-softer bg-hover-soft cursor-pointer hover:bg-hover dark:hover:bg-hover custom-focus-within'
+            className='group peer w-8 focus-within:w-40 md:w-40 flex items-center justify-between gap-2 px-2 py-1 rounded-lg text-softer bg-hover-soft focus-within:bg-main-bg cursor-pointer md:hover:bg-hover custom-focus-within
+            '
           >
-            <div className='flex items-center gap-2 w-[116px] group-focus-within:text-main-txt '>
+            <div className='grow flex items-center gap-2 w-[116px] group-focus-within:text-main-txt '>
               <i>
                 <svg
                   width='14'
@@ -99,7 +99,7 @@ const TopNav = ({ className }: { className?: string }) => {
                 className='outline-none bg-transparent w-[90%] cursor-pointer focus:cursor-default placeholder:text-softer '
               />
             </div>
-            <span className='hidden group-focus-within:block sm:block hover:pr-1 duration-500 '>
+            <span className='hidden group-focus-within:block md:block hover:pr-1 duration-500 '>
               ⌘/
             </span>
           </div>
@@ -144,12 +144,7 @@ const TopNav = ({ className }: { className?: string }) => {
                 />
               </svg>
             </TooltipButton>
-            <TooltipButton
-              tooltip='Rightbar'
-              shortCut='⌘ R'
-              htmlFor='checkR'
-              className='hidden xl:flex'
-            >
+            <TooltipButton tooltip='Rightbar' shortCut='⌘ R' htmlFor='checkR'>
               <svg
                 width='20'
                 height='20'

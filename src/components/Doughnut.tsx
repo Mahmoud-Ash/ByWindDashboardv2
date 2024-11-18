@@ -1,6 +1,6 @@
 import { Cell, Pie, PieChart, Tooltip } from "recharts";
 import { twMerge } from "tailwind-merge";
-import { useDarkMode } from "../../contexts/themeContext/ThemeContext";
+import { useDarkMode } from "../contexts/themeContext/ThemeContext";
 import Loading from "./Loading";
 
 //CUSTOMIZED TOOTIP

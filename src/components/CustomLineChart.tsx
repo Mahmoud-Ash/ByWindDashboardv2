@@ -8,8 +8,8 @@ import {
   Area,
 } from "recharts";
 import { twMerge } from "tailwind-merge";
-import { useDarkMode } from "../../contexts/themeContext/ThemeContext";
-import useGetUserStats from "../../hooks/useGetUserStats";
+import { useDarkMode } from "../contexts/themeContext/ThemeContext";
+import useGetUserStats from "../hooks/useGetUserStats";
 import Loading from "./Loading";
 
 const tabs = ["total users", "total projects", "operating status"];

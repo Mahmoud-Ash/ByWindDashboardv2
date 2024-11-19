@@ -16,7 +16,7 @@ const CustomToolbar = ({
       <h1 className='text-[20px] font-bold capitalize'>{title}</h1>
       <div className='flex gap-2'>
         {/* SEARCH CONTAINER */}
-        <div className='group peer w-8 sm:w-40 focus-within:w-40 flex items-center gap-2 px-2 py-1 rounded-lg text-softer bg-hover-soft cursor-pointer hover:bg-hover dark:hover:bg-hover custom-focus-within'>
+        <div className='group peer w-16 md:w-40 flex items-center justify-between gap-2 px-2 py-1 rounded-lg text-softer bg-hover-soft focus-within:bg-main-bg cursor-pointer md:hover:bg-hover shadow-input-focus duration-300'>
           <div className='flex items-center gap-2 w-[116px] group-focus-within:text-main-txt '>
             <i>
               <svg

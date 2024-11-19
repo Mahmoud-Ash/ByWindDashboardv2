@@ -19,9 +19,11 @@ const LeftNav = ({ className }: { className?: string }) => {
       />
       <aside
         className={twMerge(
-          `relative flex flex-col gap-2 sm:px-4 py-4 border-r border-hover duration-300`,
+          `relative flex flex-col gap-2 py-4 border-r border-hover duration-300`,
           className,
-          !expanded ? "w-0 sm:w-20 max-[1500px]:fixed" : "w-[212px]"
+          !expanded
+            ? "w-0 px-0 sm:px-4 sm:w-20 max-[1500px]:fixed"
+            : "w-[212px] px-4"
         )}
       >
         <label

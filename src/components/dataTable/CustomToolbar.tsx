@@ -1,5 +1,8 @@
+import { TextField } from "@mui/material";
 import {
+  GridSearchIcon,
   GridSlots,
+  GridToolbarExport,
   GridToolbarFilterButton,
   PropsFromSlot,
 } from "@mui/x-data-grid";
@@ -12,11 +15,11 @@ const CustomToolbar = ({
   handleSearch,
 }: CustomToolbarProps) => {
   return (
-    <div className='flex items-center justify-between pr-[50px] pl-2 pb-5 pt-2'>
+    <div className='flex items-center justify-between gap-2 pr-[50px] pl-2 pb-5 pt-2'>
       <h1 className='text-[20px] font-bold capitalize'>{title}</h1>
-      <div className='flex gap-2'>
+      <div className='flex items-center gap-2'>
         {/* SEARCH CONTAINER */}
-        <div className='group peer w-16 md:w-40 flex items-center justify-between gap-2 px-2 py-1 rounded-lg text-softer bg-hover-soft focus-within:bg-main-bg cursor-pointer md:hover:bg-hover shadow-input-focus duration-300'>
+        {/* <div className='group peer w-16 md:w-40 flex items-center justify-between gap-2 px-2 py-1 rounded-lg text-softer bg-hover-soft focus-within:bg-main-bg cursor-pointer md:hover:bg-hover shadow-input-focus duration-300'>
           <div className='flex items-center gap-2 w-[116px] group-focus-within:text-main-txt '>
             <i>
               <svg
@@ -41,16 +44,27 @@ const CustomToolbar = ({
               className='outline-none bg-transparent w-[90%] cursor-pointer focus:cursor-default placeholder:text-softer '
             />
           </div>
-        </div>
-
-        {/* <TextField
-            label='Search'
-            variant='outlined'
-            value={searchText}
-            onChange={handleSearch}
-            sx={{ height: 10 }}
-          /> */}
+        </div> */}
+        <TextField
+          className='hidden sm:block'
+          label={
+            <div className='flex items-center gap-1'>
+              <GridSearchIcon />
+              <span>Search</span>
+            </div>
+          }
+          variant='outlined'
+          value={searchText}
+          size='small'
+          onChange={handleSearch}
+          sx={{
+            "& .MuiInputBase-input": {
+              color: "var(--text-main)",
+            },
+          }}
+        />
         <GridToolbarFilterButton />
+        <GridToolbarExport />
       </div>
     </div>
   );

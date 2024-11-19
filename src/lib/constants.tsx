@@ -204,7 +204,7 @@ export const countryCols: GridColDef[] = [
   {
     field: "country",
     headerName: "Country",
-    minWidth: 80,
+    minWidth: 100,
     flex: 2,
     renderCell: params => (
       <div className='flex items-center gap-[12px] h-full '>
@@ -213,12 +213,12 @@ export const countryCols: GridColDef[] = [
       </div>
     ),
   },
-  { field: "region", headerName: "Region", minWidth: 80, flex: 2 },
+  { field: "region", headerName: "Region", minWidth: 100, flex: 2 },
   { field: "createdAt", headerName: "Created at", minWidth: 150, flex: 3 },
   {
     field: "action",
     headerName: "Action",
-    minWidth: 80,
+    minWidth: 100,
     flex: 1,
     renderCell: () => <div className='cursor-pointer m-auto w-fit'>...</div>,
   },
@@ -242,11 +242,11 @@ export const countryRows: GridRowsProp = [
 ];
 
 export const cityColumns: GridColDef[] = [
-  { field: "city", headerName: "City", minWidth: 80, flex: 2 },
+  { field: "city", headerName: "City", minWidth: 100, flex: 2 },
   {
     field: "country",
     headerName: "Country",
-    minWidth: 80,
+    minWidth: 100,
     flex: 2,
     renderCell: params => (
       <div className='flex items-center gap-[12px] h-full '>
@@ -255,12 +255,12 @@ export const cityColumns: GridColDef[] = [
       </div>
     ),
   },
-  { field: "region", headerName: "Region", minWidth: 80, flex: 2 },
+  { field: "region", headerName: "Region", minWidth: 100, flex: 2 },
   { field: "createdAt", headerName: "Created at", minWidth: 150, flex: 3 },
   {
     field: "status",
     headerName: "Status",
-    minWidth: 80,
+    minWidth: 100,
     flex: 2,
     renderCell: params => {
       return params.row.status === "Active" ? (
@@ -277,7 +277,7 @@ export const cityColumns: GridColDef[] = [
   {
     field: "action",
     headerName: "Action",
-    minWidth: 80,
+    minWidth: 100,
     flex: 1,
     renderCell: () => <div className='cursor-pointer m-auto w-fit'>...</div>,
   },

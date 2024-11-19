@@ -37,7 +37,6 @@
   --brand: #9f9ff8;
   --cell: #eeeeeecb;
 }
-
 body {
   font-family: "Inter", serif;
   font-size: 14px;
@@ -115,12 +114,14 @@ body {
     transform: translateY(calc(var(--digit-trans) - 1%));
   }
 }
+
 /* input focus style */
 @layer utilities {
   .custom-focus-within:focus-within {
     @apply z-50 cursor-default shadow-input-focus absolute md:relative duration-300;
   }
 }
+
 /* DATA TABLE  */
 .MuiDataGrid-filler,
 .MuiDataGrid-scrollbarFiller {
@@ -137,17 +138,18 @@ body {
 .MuiDataGrid-footerContainer {
   color: var(--text-main);
 }
-/* scroll bar style */
+/* .MuiInputBase-input {
+  padding: 8px 16px !important;
+} */
 
+/* scroll bar style */
 ::-webkit-scrollbar {
   width: 4px;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: var(--text-softer);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 4px;

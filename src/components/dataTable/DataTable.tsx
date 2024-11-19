@@ -27,6 +27,10 @@ const theme = createTheme({
         checkboxInput: {
           color: "var(--text-soft)",
         },
+        footerContainer: {
+          "& .MuiTablePagination-root": { color: "var(--text-main)" },
+          "& .MuiTablePagination-actions button": { color: "var(--text-main)" },
+        },
       },
     },
   },

@@ -134,6 +134,9 @@ body {
   border-bottom: 1px solid #e5e7eb;
   border-top: 1px solid #e5e7eb;
 }
+.MuiDataGrid-footerContainer {
+  color: var(--text-main);
+}
 /* scroll bar style */
 
 ::-webkit-scrollbar {

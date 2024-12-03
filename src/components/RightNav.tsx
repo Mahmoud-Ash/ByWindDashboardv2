@@ -1,9 +1,32 @@
 import { twMerge } from "tailwind-merge";
 import { activities, contacts, notifications } from "../lib/constants";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 const RightNav = ({ className }: { className?: string }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const windowSize = useWindowSize();
+  const sidebarRef = useRef<HTMLElement>(null);
+  const widthThreshold = 1790;
+
+  useEffect(() => {
+    return windowSize <= widthThreshold
+      ? setExpanded(false)
+      : setExpanded(true);
+  }, [windowSize]);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        expanded &&
+        windowSize <= widthThreshold &&
+        !sidebarRef.current?.contains(e.target as Node)
+      )
+        setExpanded(false);
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [expanded, windowSize]);
 
   return (
     <>
@@ -15,6 +38,7 @@ const RightNav = ({ className }: { className?: string }) => {
         onChange={() => setExpanded(prev => !prev)}
       />
       <aside
+        ref={sidebarRef}
         className={twMerge(
           "relative flex flex-col gap-4 p-4 border-l border-hover w-[280px] duration-500 ",
           className,
@@ -25,7 +49,7 @@ const RightNav = ({ className }: { className?: string }) => {
         <div className='flex flex-col gap-1'>
           <label
             htmlFor='checkR'
-            className='cursor-pointer absolute right-8 top-6 px-3 py-1 rounded-lg bg-softer hover:bg-soft duration-300 min-[1790px]:hidden'
+            className='cursor-pointer absolute right-8 top-6 px-3 py-1 rounded-lg hover:bg-hover duration-300 min-[1790px]:hidden'
           >
             X
           </label>

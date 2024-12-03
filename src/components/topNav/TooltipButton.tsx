@@ -33,7 +33,7 @@ const TooltipButton = ({
       </label>
 
       {/* TOOLTIP SECTION */}
-      <div className='absolute  items-center gap-1 -bottom-[30px] py-1 px-2 bg-black/80  backdrop-blur-2xl rounded-lg text-xs pointer-events-none opacity-0 whitespace-nowrap peer-hover:opacity-100 peer-hover:flex duration-500 '>
+      <div className='absolute items-center gap-1 max-sm:-top-[30px] sm:-bottom-[30px] py-1 px-2 bg-black/80  backdrop-blur-2xl rounded-lg text-xs pointer-events-none opacity-0 whitespace-nowrap peer-hover:opacity-100 peer-hover:flex duration-500 delay-300 '>
         <p className='flex items-center gap-2 rounded-lg'>
           <span className='text-white capitalize'>{tooltip}</span>
           <span className='text-white/40 uppercase'>{shortCut}</span>

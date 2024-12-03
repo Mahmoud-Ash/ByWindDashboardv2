@@ -2,11 +2,34 @@ import { LeftMenuList } from "../../lib/constants";
 import Button from "../Button";
 import { twMerge } from "tailwind-merge";
 import Logo from "./Logo";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const LeftNav = ({ className }: { className?: string }) => {
   const [expanded, setExpanded] = useState(false);
+  const windowSize = useWindowSize();
+  const sidebarRef = useRef<HTMLElement>(null);
+  const widthThreshold = 1500;
+
+  useEffect(() => {
+    return windowSize <= widthThreshold
+      ? setExpanded(false)
+      : setExpanded(true);
+  }, [windowSize]);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        expanded &&
+        windowSize <= widthThreshold &&
+        !sidebarRef.current?.contains(e.target as Node)
+      )
+        setExpanded(false);
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [expanded, windowSize]);
 
   return (
     <>
@@ -29,7 +52,7 @@ const LeftNav = ({ className }: { className?: string }) => {
         <label
           htmlFor='checkL'
           className={twMerge(
-            "cursor-pointer absolute right-5 top-5 px-3 py-1 rounded-lg bg-softer hover:bg-soft duration-300 min-[1500px]:hidden ",
+            "cursor-pointer absolute right-5 top-5 px-3 py-1 rounded-lg hover:bg-hover duration-300 min-[1500px]:hidden ",
             !expanded ? "hidden" : ""
           )}
         >

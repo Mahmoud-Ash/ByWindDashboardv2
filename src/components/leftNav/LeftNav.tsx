@@ -41,6 +41,7 @@ const LeftNav = ({ className }: { className?: string }) => {
         onChange={() => setExpanded(prev => !prev)}
       />
       <aside
+        ref={sidebarRef}
         className={twMerge(
           `relative flex flex-col gap-2 py-4 border-r border-hover duration-300`,
           className,
